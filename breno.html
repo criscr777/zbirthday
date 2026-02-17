@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Breno</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- LOGIN PROTECTION -->
+<script>
+if (!localStorage.getItem("zaraLogged")) {
+  window.location.href = "login.html";
+}
+</script>
+
+<!-- FUNDO -->
+<div class="bg" style="background-image:url('images/brenozara.jpeg')"></div>
+<div class="gradient-overlay"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="login.html">Zara’s Birthday</a>
+    </div>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="santiago.html">Santiago</a></li>
+      <li><a href="isabelle.html">Isabelle</a></li>
+      <li><a href="breno.html" class="active">Breno</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<div class="container">
+
+  <h1>Breno</h1>
+  <p class="subtitle">Feliz aniversário, dinda!</p>
+
+  <!-- GALERIA DE IMAGENS -->
+  <div class="gallery">
+    <img src="images/b1.jpeg" alt="Breno 1">
+    <img src="images/b2.jpeg" alt="Breno 2">
+  </div>
+
+  <!-- CARTA -->
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    Breno's voice:
+    <div class="letter">
+      <p>
+        Minha didoca, eu poderia passar horas e horas falando do quão importante você é, do carinho enorme que tenho e da imensa gratidão que sinto também. 
+        Essa gratidão é por sempre me apoiar em tudo e estar comigo em todos os momentos da minha vida, literalmente. E você nunca pensou em soltar a minha mão, sempre comigo. 
+        Você é tão especial quanto o dia de hoje, seu aniversário. Espero que aproveite bastante, conosco e com quem também faça desse dia um dia inesquecível para você. 
+        Espero ter sempre esse seu lado atencioso e amoroso, aquele jeito protetor seu que me faz ser uma criança mesmo, sempre aos seus cuidados. 
+        Sei que sempre terei seu colo como apoio, como refúgio, assim como eu sempre estarei aqui para você. Eu te amo muito, muito mesmo. Meu maior amor. 🤎
+      </p>
+    </div>
+  </div>
+
+  <!-- VÍDEOS -->
+  <div class="videos">
+    <video src="images/breno1.mp4" controls></video>
+    <video src="images/breno2.MP4" controls></video>
+  </div>
+
+  <p class="dupla">Breno & Sant w/ you.</p>
+
+  <!-- BOTÕES DE NAVEGAÇÃO -->
+  <div class="page-nav">
+    <button class="nav-glass-btn" onclick="window.location.href='isabelle.html'">
+      Voltar
+    </button>
+    <button class="nav-glass-btn" onclick="window.location.href='index.html'">
+      Início
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>Zara's Birthday — 2026</footer>
+</div>
+
+<!-- PARALLAX SAFE IPHONE -->
+<script>
+const bg = document.querySelector(".bg");
+window.addEventListener("scroll", () => {
+  const scroll = window.pageYOffset;
+  bg.style.transform = `translateY(${scroll * 0.03}px)`;
+});
+</script>
+
+</body>
+</html>
