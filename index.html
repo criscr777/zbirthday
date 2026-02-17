@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zara's Birthday</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap');
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'SF Pro Display', sans-serif; }
+body { min-height:100vh; color:#fff; overflow-x:hidden; }
+.background {
+    position:fixed;
+    width:100%; height:100%;
+    background: url('imagens/fundo.jpg') no-repeat center/cover;
+    filter: blur(2px) brightness(0.5);
+    z-index:-1;
+}
+.menu {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 40px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    position:sticky; top:0;
+}
+.menu .logo { font-weight:600; font-size:1.5em; }
+.menu ul { display:flex; list-style:none; gap:20px; }
+.menu a { text-decoration:none; color:#fff; font-weight:500; transition:0.3s; }
+.menu a:hover { color:#ffd700; }
+
+.container {
+    max-width:900px; margin:100px auto 50px; text-align:center;
+    background: rgba(255,255,255,0.1); padding:30px;
+    border-radius:20px; backdrop-filter: blur(15px); display:none;
+}
+
+h1 { font-size:2.5em; margin-bottom:10px; }
+h2 { font-size:2em; margin-bottom:20px; }
+p { font-size:1.2em; margin-bottom:15px; }
+
+input[type=text] {
+    padding:10px 15px; border-radius:10px; border:none;
+    outline:none; font-size:1em; margin-bottom:20px;
+}
+
+button, .btn {
+    padding:10px 25px; margin:0 10px; border-radius:15px;
+    backdrop-filter: blur(10px); background: rgba(255,255,255,0.2);
+    color:#fff; font-weight:600; border:none; cursor:pointer; transition:0.3s;
+}
+
+button:hover, .btn:hover { background: rgba(255,255,255,0.3); }
+
+.videos video { width:100%; max-width:400px; margin:10px; border-radius:15px; }
+.photo img { width:300px; margin-top:20px; border-radius:15px; }
+
+/* Carta */
+.letter { width:300px; margin:20px auto; perspective:1000px; cursor:pointer; position:relative; }
+.letter-front, .letter-back {
+    width:100%; padding:20px; border-radius:15px;
+    background: rgba(255,255,255,0.2); backdrop-filter: blur(10px);
+    transition:0.6s; transform-style: preserve-3d; position:absolute; color:#fff;
+}
+.letter-back { transform: rotateY(180deg); }
+.letter.open .letter-front { transform: rotateY(180deg); }
+.letter.open .letter-back { transform: rotateY(0deg); }
+
+/* Seções */
+.section { display:none; }
+.section.active { display:block; }
+</style>
+</head>
+<body>
+
+<div class="background"></div>
+
+<nav class="menu">
+    <div class="logo">Zara's Birthday</div>
+    <ul>
+        <li><a href="#" onclick="showSection('welcome')">Inicio</a></li>
+        <li><a href="#" onclick="showSection('santiago')">Santiago</a></li>
+    </ul>
+</nav>
+
+<!-- Login -->
+<div class="container" id="login">
+    <h1>Enter your name to start</h1>
+    <input type="text" id="username" placeholder="Your name...">
+    <button onclick="startSite()">Enter</button>
+</div>
+
+<!-- Welcome -->
+<div class="container section" id="welcome">
+    <h1>Happy Birthday!</h1>
+    <p>We made this site as a surprise for you ❤️</p>
+    <p>With love, Santiago, Isabele & Breno</p>
+    <div class="buttons">
+        <button class="btn" onclick="showSection('login')">Back</button>
+        <button class="btn" onclick="showSection('santiago')">Next</button>
+    </div>
+</div>
+
+<!-- Santiago -->
+<div class="container section" id="santiago">
+    <h1>Santiago</h1>
+    <h2>Happy Birthday!</h2>
+
+    <div class="videos">
+        <video src="images/santiago1.mp4" controls></video>
+        <video src="images/santiago2.mp4" controls></video>
+    </div>
+
+    <div class="photo">
+        <img src="images/santiago.jpg" alt="Santiago">
+    </div>
+
+    <div class="letter" id="letter">
+        <div class="letter-front">Open the Letter 💌</div>
+        <div class="letter-back">
+            <p>Happy Birthday, Santiago! We hope your day is filled with joy, laughter, and love. ❤️</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="btn" onclick="showSection('welcome')">Back</button>
+    </div>
+</div>
+
+<script>
+function startSite(){
+    const name = document.getElementById('username').value.trim();
+    if(name){
+        localStorage.setItem('username', name);
+        document.getElementById('login').style.display = 'none';
+        showSection('welcome');
+    } else {
+        alert('Please enter your name!');
+    }
+}
+
+function showSection(id){
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+// Carta interativa
+const letter = document.getElementById('letter');
+letter.addEventListener('click', () => {
+    letter.classList.toggle('open');
+});
+</script>
+
+</body>
+</html>
