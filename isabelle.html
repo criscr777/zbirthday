@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Isabelle</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- LOGIN PROTECTION -->
+<script>
+if (!localStorage.getItem("zaraLogged")) {
+  window.location.href = "login.html";
+}
+</script>
+
+<!-- FUNDO -->
+<div class="bg" style="background-image:url('images/zara-isabelle.jpg')"></div>
+<div class="gradient-overlay"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="login.html">Zara’s Birthday</a>
+    </div>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="santiago.html">Santiago</a></li>
+      <li><a href="isabelle.html" class="active">Isabelle</a></li>
+      <li><a href="breno.html">Breno</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<div class="container">
+
+  <h1>Isabelle</h1>
+  <p class="subtitle">Feliz aniversário, afilhada!</p>
+
+  <!-- GALERIA DE IMAGENS -->
+  <div class="gallery">
+    <img src="images/i1.jpeg" alt="Isabelle 1">
+    <img src="images/i2.jpeg" alt="Isabelle 2">
+  </div>
+
+  <!-- CARTA -->
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    Belle's voice:
+    <div class="letter">
+      <p>
+        Hoje eu quero que você sinta, de verdade, o quanto é amada. Desde 2023, nossa relação ganhou uma nova forma, mais madura, mais sincera, mais forte. 
+        A reconstrução do que somos uma para a outra foi um dos processos mais bonitos que eu já vivi. Não foi só aproximação, foi escolha. Escolha de cuidar, de ouvir, de confiar e de permanecer. 
+        E eu sou profundamente feliz por tudo o que estamos construindo. Você deixou de ser apenas minha afilhada no papel. Você se tornou minha confidente, minha parceira, aquela pessoa em quem eu deposito meus segredos de olhos fechados, porque sei que seu coração é leal, sensível e verdadeiro. 
+        É raro encontrar alguém em quem possamos confiar assim, e eu tenho esse privilégio com você. Nossa conexão é leve, é recíproca, é cheia de carinho e cumplicidade. 
+        Eu sinto um orgulho imenso da pessoa que você vem se tornando. Cada fase sua me emociona. Ver sua maturidade, sua força, seu jeito de enfrentar as coisas, sua doçura misturada com coragem, tudo isso me faz admirar você ainda mais. 
+        Você tem uma luz própria, um brilho que não se apaga, mesmo nos dias difíceis. E eu quero que você nunca duvide do seu valor, porque ele é gigante. 💕
+      </p>
+    </div>
+  </div>
+
+  <!-- VÍDEO -->
+  <div class="videos">
+    <video src="images/isabelle1.MP4" controls></video>
+  </div>
+
+  <!-- BOTÕES DE NAVEGAÇÃO -->
+  <div class="page-nav">
+    <button class="nav-glass-btn" onclick="window.location.href='santiago.html'">
+      Voltar
+    </button>
+    <button class="nav-glass-btn" onclick="window.location.href='breno.html'">
+      Próximo
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>Zara's Birthday — 2026</footer>
+</div>
+
+<!-- PARALLAX SAFE IPHONE -->
+<script>
+const bg = document.querySelector(".bg");
+window.addEventListener("scroll", () => {
+  const scroll = window.pageYOffset;
+  bg.style.transform = `translateY(${scroll * 0.03}px)`;
+});
+</script>
+
+</body>
+</html>
