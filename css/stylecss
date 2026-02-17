@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:black;
+  color:white;
+  letter-spacing:0.2px;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* LINKS */
+a{
+  color:white !important;
+  text-decoration:none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+a:visited,a:hover,a:active{color:white;}
+
+/* ===== FUNDO ===== */
+.bg{
+  position:fixed;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  filter:blur(1px) brightness(0.35);
+  z-index:-2;
+}
+
+/* GRADIENTE */
+.gradient-overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,
+    rgba(0,0,0,0.75),
+    rgba(25,25,25,0.45),
+    rgba(0,0,0,0.85)
+  );
+  background-size:200% 200%;
+  animation:gradientMove 16s ease infinite;
+  z-index:-1;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== LOGIN ===== */
+.login-container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.login-card{
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(40px);
+  border-radius:22px;
+  padding:26px 22px;
+  width:100%;
+  max-width:320px;
+  text-align:center;
+  animation:fadeUp 1s ease forwards;
+}
+
+.login-card h1{
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.login-card p{
+  font-size:13px;
+  opacity:0.6;
+  margin-bottom:16px;
+}
+
+.login-card input{
+  width:100%;
+  padding:13px;
+  border-radius:14px;
+  border:none;
+  background:rgba(255,255,255,0.12);
+  color:white;
+  outline:none;
+  font-size:15px;
+}
+
+.login-card button{
+  width:100%;
+  margin-top:12px;
+  padding:13px;
+  border-radius:14px;
+  border:none;
+  background:white;
+  color:black;
+  font-weight:600;
+  font-size:15px;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:10px 0;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(30px);
+  z-index:10;
+  display:flex;
+  justify-content:center;
+}
+
+.nav-container{
+  width:100%;
+  max-width:900px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 20px;
+}
+
+.logo a{
+  font-size:14px;
+  font-weight:600;
+  opacity:0.85;
+}
+
+nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+
+nav a{
+  font-size:14px;
+  font-weight:600;
+  opacity:0.7;
+  position:relative;
+  transition:0.2s;
+}
+
+nav a:hover{opacity:1;}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:white;
+  transition:0.2s;
+}
+
+nav a.active{
+  font-weight:700;
+  opacity:1;
+}
+nav a.active::after{
+  width:100%;
+}
+
+/* ===== CONTAINER NORMAL ===== */
+.container{
+  padding-top:90px;
+  max-width:750px;
+  margin:auto;
+  padding-left:20px;
+  padding-right:20px;
+  flex:1;
+}
+
+/* TITULOS */
+h1{
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.subtitle{
+  opacity:0.6;
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+/* VIDEO */
+video{
+  width:100%;
+  border-radius:18px;
+  margin-bottom:28px;
+}
+
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-bottom:28px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:14px;
+  object-fit:cover;
+}
+
+/* TEXTO */
+.text{
+  font-size:15px;
+  line-height:1.6;
+  opacity:0.9;
+  margin-bottom:22px;
+}
+
+/* ===== CARTA (AUTO HEIGHT) ===== */
+.envelope{
+  margin-top:18px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border-radius:16px;
+  padding:14px;
+  cursor:pointer;
+  margin-bottom:4vw;
+  overflow:hidden;
+}
+
+/* truque para auto height animado */
+.letter{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:0.5s ease;
+  opacity:0;
+}
+
+.letter > *{
+  overflow:hidden;
+}
+
+/* quando abre */
+.envelope.open .letter{
+  grid-template-rows:1fr;
+  opacity:1;
+}
+
+/* ===== HOME CENTRALIZADA ===== */
+.home-center{
+  min-height:95vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding-top:100px;
+  padding-bottom:80px;
+}
+
+.home-title{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.home-text{
+  font-size:14px;
+  line-height:1.3;
+  max-width:480px;
+  opacity:0.85;
+  margin-bottom:15px;
+}
+
+.home-signature{
+  font-size:13px;
+  font-weight:600;
+  opacity:0.9;
+}
+
+.dupla{
+  opacity:60%;
+  margin:-5vw 0 0 2vw;
+  font-size:smaller;
+}
+
+/* BOTÃO GLASS HOME */
+.glass-btn{
+  margin-top:22px;
+  padding:12px 32px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.4);
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:15px;
+  font-weight:500;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:0.3s ease;
+}
+
+.glass-btn:hover{
+  background:rgba(255,255,255,0.3);
+  transform:scale(1.05);
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+.page-nav{
+  display:flex;
+  justify-content:space-between;
+  margin-top:50px;
+  margin-bottom:40px;
+  gap:20px;
+}
+
+.nav-glass-btn{
+  padding:12px 28px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.12);
+  color:white;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+  backdrop-filter:blur(12px);
+  transition:0.25s ease;
+}
+
+.nav-glass-btn:hover{
+  background:rgba(255,255,255,0.3);
+  transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:auto;
+  text-align:center;
+  font-size:12px;
+  opacity:0.5;
+  padding:12px 0;
+}

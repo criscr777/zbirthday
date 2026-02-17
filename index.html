@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teste de Vídeos</title>
-<style>
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #111;
-    color: #fff;
-    font-family: sans-serif;
-    min-height: 100vh;
-    padding: 20px;
-}
-video {
-    width: 80%;
-    max-width: 600px;
-    margin: 20px 0;
-    border: 2px solid #fff;
-    border-radius: 10px;
-}
-</style>
+<title>Zara’s Birthday</title>
+
+<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>Teste de Vídeos Santiago</h1>
+<!-- LOGIN PROTECTION -->
+<script>
+if (!localStorage.getItem("zaraLogged")) {
+  window.location.href = "login.html";
+}
+</script>
 
-<video src="images/santiago1.mp4" controls></video>
-<video src="images/santiago2.mp4" controls></video>
+<!-- FUNDO -->
+<div class="bg" style="background-image:url('images/zara-inicio.jpg')"></div>
+<div class="gradient-overlay"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="login.html">Zara’s Birthday</a>
+    </div>
+
+    <ul>
+      <li><a href="index.html" class="active">Início</a></li>
+      <li><a href="santiago.html">Santiago</a></li>
+      <li><a href="isabelle.html">Isabelle</a></li>
+      <li><a href="breno.html">Breno</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONTEÚDO CENTRAL -->
+<div class="main-wrapper">
+
+  <div class="home-center">
+    <h1 class="home-title">Feliz Aniversário!</h1>
+
+    <p class="home-text">
+      Fizemos esse site para comemorar o seu aniversário.<br>
+      Cada detalhe foi pensado com muito carinho, lembranças e mensagens especiais.<br>
+      Esperamos que você goste.<br>
+      Com carinho,
+      Santiago, Isabelle e Breno.
+    </p>
+<button class="nav-glass-btn" onclick="window.location.href='santiago.html'">
+  Entrar
+</button>
+
+
+  </div>
+
+</div>
+
+<footer>Zara’s Birthday — 2026</footer>
 
 </body>
 </html>

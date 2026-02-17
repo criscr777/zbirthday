@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zara’s Birthday</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="bg" style="background-image:url('images/zara-login.jpg')"></div>
+<div class="gradient-overlay"></div>
+
+<div class="login-container">
+  <div class="login-card">
+    <h1>Happy Birthday</h1>
+    <p>Enter your name to continue</p>
+
+    <input id="nameInput" type="text" placeholder="Your name">
+    <button onclick="login()">Enter</button>
+  </div>
+</div>
+
+<script>
+function login() {
+  const name = document.getElementById("nameInput").value.trim().toLowerCase();
+
+  if (name === "zara" || name === "zara luiza") {
+    localStorage.setItem("zaraLogged", "true");
+    window.location.href = "index.html";
+  } else {
+    alert("Name incorrect.");
+  }
+}
+</script>
+
+</body>
+</html>
