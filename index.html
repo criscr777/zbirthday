@@ -1,65 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zara’s Birthday</title>
-
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<!-- LOGIN PROTECTION -->
-<script>
-if (!localStorage.getItem("zaraLogged")) {
-  window.location.href = "login.html";
-}
-</script>
-
-<!-- FUNDO -->
 <div class="bg" style="background-image:url('images/zara.jpeg')"></div>
 <div class="gradient-overlay"></div>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="nav-container">
-    <div class="logo">
-      <a href="login.html">Zara’s Birthday</a>
-    </div>
+<div class="login-container">
+  <div class="login-card">
+    <h1>Happy Birthday</h1>
+    <p>Enter your name to continue</p>
 
-    <ul>
-      <li><a href="index.html" class="active">Início</a></li>
-      <li><a href="santiago.html">Santiago</a></li>
-      <li><a href="isabelle.html">Isabelle</a></li>
-      <li><a href="breno.html">Breno</a></li>
-    </ul>
+    <input id="nameInput" type="text" placeholder="Your name">
+    <button onclick="login()">Enter</button>
   </div>
-</nav>
-
-<!-- CONTEÚDO CENTRAL -->
-<div class="main-wrapper">
-
-  <div class="home-center">
-    <h1 class="home-title">Feliz Aniversário!</h1>
-
-    <p class="home-text">
-      Fizemos esse site para comemorar o seu aniversário.<br>
-      Cada detalhe foi pensado com muito carinho, lembranças e mensagens especiais.<br>
-      Esperamos que você goste.<br>
-      Com carinho,
-      Santiago, Isabelle e Breno.
-    </p>
-<button class="nav-glass-btn" onclick="window.location.href='santiago.html'">
-  Entrar
-</button>
-
-
-  </div>
-
 </div>
 
-<footer>Zara’s Birthday — 2026</footer>
+<script>
+function login() {
+  const name = document.getElementById("nameInput").value.trim().toLowerCase();
+
+  if (name === "zara" || name === "zara luiza") {
+    localStorage.setItem("zaraLogged", "true");
+    window.location.href = "index.html";
+  } else {
+    alert("Name incorrect.");
+  }
+}
+</script>
 
 </body>
 </html>

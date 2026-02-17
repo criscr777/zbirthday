@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Santiago</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- LOGIN PROTECTION -->
+<script>
+if (!localStorage.getItem("zaraLogged")) {
+  window.location.href = "login.html";
+}
+</script>
+
+<!-- FUNDO -->
+<div class="bg" style="background-image:url('images/santiagozara.jpeg')"></div>
+<div class="gradient-overlay"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-container">
+    <div class="logo">
+      <a href="login.html">Zara’s Birthday</a>
+    </div>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="santiago.html" class="active">Santiago</a></li>
+      <li><a href="isabelle.html">Isabelle</a></li>
+      <li><a href="breno.html">Breno</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<div class="container">
+
+  <h1>Santiago</h1>
+  <p class="subtitle">Feliz aniversário, mãe!</p>
+
+  <!-- GALERIA DE IMAGENS -->
+  <div class="gallery">
+    <img src="images/s1.jpeg" alt="Santiago 1">
+    <img src="images/s2.jpeg" alt="Santiago 2">
+  </div>
+
+  <!-- CARTA -->
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    Sant's voice:
+    <div class="letter">
+      <p>
+        Dia da pessoa que me acompanha desde 2023 e que, independente de tudo o que já aconteceu, sempre volta pra mim e eu sempre volto pra ela. 
+        Você é uma das pessoas mais importantes da minha vida e uma das pessoas mais especiais que eu já tive. Você é uma mulher muito forte, incrível e merece tudo de melhor nesse mundo. 
+        Fico muito feliz por termos mais uma chance de fortalecer nossa relação. Eu te amo muito e espero que você saiba o quanto você significa pra mim. 
+        Desejo tudo de bom na sua vida, que você realize todos os seus sonhos, que seja muito feliz e que nunca esqueça o quanto é importante. 
+        Espero que você aproveite muito o seu dia, se sinta amada, valorizada e especial, porque você é. Vou estar sempre aqui pra te apoiar, mãe. Eu te amo muito. 💚
+      </p>
+    </div>
+  </div>
+
+  <!-- VÍDEOS -->
+  <div class="videos">
+    <video src="images/santiago1.mp4" controls></video>
+    <video src="images/santiago2.mp4" controls></video>
+  </div>
+
+  <!-- BOTÕES DE NAVEGAÇÃO -->
+  <div class="page-nav">
+    <button class="nav-glass-btn" onclick="window.location.href='index.html'">
+      Voltar
+    </button>
+    <button class="nav-glass-btn" onclick="window.location.href='isabelle.html'">
+      Próximo
+    </button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>Zara's Birthday — 2026</footer>
+</div>
+
+<!-- PARALLAX SAFE IPHONE -->
+<script>
+const bg = document.querySelector(".bg");
+window.addEventListener("scroll", () => {
+  const scroll = window.pageYOffset;
+  bg.style.transform = `translateY(${scroll * 0.03}px)`;
+});
+</script>
+
+</body>
+</html>
